@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 async function getData(query)
 {
     const app_key = process.env.APP_KEY;
@@ -12,12 +14,21 @@ async function getData(query)
         }
 
         const json = await response.json();
-        return json;
+        const recipes = json.hits.map(hit => ({
+            label: hit.recipe.label,
+            img: hit.recipe.image
+        }));
+        return recipes;
     }
     catch{
         console.log(error.message);
     }
-    return null;
 }
 
+async function fun()
+{
+    const data = await getData('chicken');
+    console.log(data);
+}
+fun();
 module.exports = getData;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search</title>
+</head>
+<body>
+    <form action="/" method="GET">
+        <label for="food">Food</label>
+        <input type="text" name="food">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+    <% for( let index = 0; index < c.length; index++ ) { %>
+        <li><%= c[index].label %></li>
+        <img src="<%= c[index].img %>">
+    <% } %>
+    </ul>
+</body>
+</html>

@@ -25,10 +25,4 @@ async function getData(query)
     }
 }
 
-async function fun()
-{
-    const data = await getData('chicken');
-    console.log(data);
-}
-fun();
 module.exports = getData;

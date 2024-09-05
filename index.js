@@ -8,9 +8,11 @@ const port = process.env.PORT;
 
 app.get('/', async (req, res) =>{
     const food = req.query.food;
-    if(food === undefined) return res.render('index', c = []);
+    if(food === undefined) return res.render('index', {c :[], err : ""});
     const r = await getData(food);
-    return res.render('index', c = r);
+    console.log(r);
+    if (r.length === 0) return res.render('index', {c: [], err: "There is no such kind of food" });
+    return res.render('index', {c: r, err: ""});
     
 })
 

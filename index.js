@@ -16,6 +16,12 @@ app.get('/', async (req, res) =>{
     
 })
 
+app.get('/recipe/:name', async (req, res) => {
+    const name = req.params.name;
+    const recipe = await getData(name.replaceAll(' ', '-'));
+    return res.render('recipe', {recipe: recipe[0]});
+})
+
 app.listen(port, () => {
     console.log(`App is running on port ${port}`);
 })

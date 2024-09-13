@@ -16,7 +16,9 @@ async function getData(query)
         const json = await response.json();
         const recipes = json.hits.map(hit => ({
             label: hit.recipe.label,
-            img: hit.recipe.image
+            img: hit.recipe.image,
+            url: hit.recipe.label.replaceAll(' ', '-'),
+            ing: hit.recipe.ingredients
         }));
         return recipes;
     }

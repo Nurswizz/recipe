@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= recipe.label %></title>
+</head>
+<body>
+    <div class="recipe-container">
+        <h1><%= recipe.label %></h1>
+        <img src="<%= recipe.img %>">
+        <% for( let index = 0; index < recipe.ing.length; index++ ) { %>
+            <p><%= recipe.ing[index].text %></p>
+        <% } %>
+    </div>
+</body>
+</html>

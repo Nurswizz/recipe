@@ -16,10 +16,12 @@
     </div>
     <div class="cards-container">
         <% for( let index = 0; index < c.length; index++ ) { %>
+        <a href="recipe/<%= c[index].url %>" style="text-decoration: none; color: inherit; display: block;">
             <div class="card">
                 <p class="card-text"><%= c[index].label %></p>
                 <img src="<%= c[index].img %>">
             </div>
+        </a>
         <% } %>
     </div>
     <h1><%= err %></h1>
